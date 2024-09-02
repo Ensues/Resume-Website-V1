@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+    <head>
+
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+        <title> Portfolio | Eric Quiambao </title>
+        <meta name = "description" content = "Portfolio Eric Quiambao">
+        <link rel = "stylesheet" href = "styles.css">
+
+    </head>
+
+    <body>
+
+        <!-- Header Section -->
+
+        <header>
+
+            <div class = "container">
+
+                <nav>
+                    <ul>
+                        <!-- <li><a href = "index.html"> Sen.com </a></li> -->
+                        <li><a href = "index.html"> <c>Home</c> </a></li>
+                        <li><a href = "about.html"> About Me </a></li>
+                        <li><a href = "projects.html"> Projects </a></li>
+                        <li><a href = "contact.html"> Contact Me </a></li>
+                    </ul>
+                </nav>
+                
+            </div>
+
+        </header>
+
+        <!-- Home Content -->
+
+        <section>
+            <div class="container">
+                <br>
+                <h2 id="welcome-text" class="typing-effect"></h2>
+                <br>
+                <h1 id="name-text" class="typing-effect"></h1>
+                <br>
+                <h2 id="year-text" class="typing-effect"></h2>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+
+        <footer>
+
+            <div class = "container">
+
+                <p>&copy; 2024 Eric Janssen P. Quiambao All rights reserved. </p>
+
+                <div class = "social-links">
+
+                    <a href = "https://linkedin.com/in/ejanssenq" target = "_blank"> LinkedIn </a>
+                    <a href = "https://github.com/Ensues" target = "_blank"> GitHub </a>
+                    <a href = "https://leetcode.com/u/ejanssenq/" target = "_blank"> LeetCode </a>
+
+                    <!-- Add more social links as needed -->
+
+                </div>
+
+            </div>
+        </footer>
+
+        <script src = "scripts.js"></script>   
+        <script>
+
+            // JavaScript for typing effect
+
+            const elements = {
+
+                "welcome-text": "Welcome To My Portfolio Site, I am",
+                "name-text": "Eric Janssen P. Quiambao",
+                "year-text": "3rd Yr Computer Science Student"
+
+            };
+
+            function typeText(elementId, text, speed, callback) {
+
+                const textElement = document.getElementById(elementId);
+                textElement.textContent = ""; // Clear initial content
+                textElement.classList.remove('complete'); // Ensure text is visible initially
+
+                let index = 0;
+                let cursorVisible = true;
+
+                function type() {
+
+                    if (index < text.length) {
+                        textElement.textContent += text.charAt(index);
+                        index++;
+                        setTimeout(type, speed);
+                    } else {
+                        textElement.classList.add('complete'); // Optionally add a class for any final styling
+                        if (callback) {
+                            callback();
+                        }
+                    }
+
+                }
+
+                type();
+            }
+
+            function startTypingEffect() {
+
+                let delay = 0;
+                const typingSpeed = 75; // Speed of typing in milliseconds
+                const typingDelay = 75; // Delay between each text
+
+                for (const [key, value] of Object.entries(elements)) {
+
+                    setTimeout(() => {
+                        typeText(key, value, typingSpeed);
+                    }, delay);
+                    delay += value.length * typingSpeed + typingDelay; // Adjust delay between elements
+
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                startTypingEffect();
+        });
+        </script>
+        
+    </body>
+</html>
