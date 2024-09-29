@@ -214,6 +214,13 @@ a:hover {
     color: #66FCF1;
 }
 
+#about img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
 #about h3 {
     font-size: 2em;
     margin-top: 40px;
